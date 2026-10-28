@@ -9,46 +9,46 @@ An OpenHarmony embedded-development practice project for the Huawei HiSilicon Hi
 
 ```
 Hi3861/
-├── rayawa/                         # 核心开发模块
-│   ├── hello/                      # 基础示例
-│   │   ├── BUILD.gn                # 编译配置
-│   │   └── hello.c                 # Hello World 程序
+├── rayawa/                         # Core development modules
+│   ├── hello/                      # Basic example
+│   │   ├── BUILD.gn                # Build configuration
+│   │   └── hello.c                 # Hello World program
 │   │
-│   ├── traffic_light/              # 模块一：红绿灯板开发
-│   │   ├── BUILD.gn                # 编译配置（一次只能激活一个文件）
-│   │   ├── light.c                 # 红黄绿三色灯基础控制
-│   │   ├── traffic.c               # 交通灯系统（自动时序）
-│   │   ├── ability.c               # 多线程并发开发
-│   │   ├── button.c                # S3 按钮开发
-│   │   └── control.c               # 按钮控制红绿灯（综合项目）
+│   ├── traffic_light/              # Module 1: Traffic light board
+│   │   ├── BUILD.gn                # Build configuration (only one file active at a time)
+│   │   ├── light.c                 # Basic red/yellow/green light control
+│   │   ├── traffic.c               # Traffic light system (automatic timing)
+│   │   ├── ability.c               # Multithreaded concurrency
+│   │   ├── button.c                # S3 button
+│   │   └── control.c               # Button-controlled traffic lights (integrated project)
 │   │
-│   ├── colorful_light/             # 模块二：炫彩灯板开发
-│   │   ├── BUILD.gn                # 编译配置
-│   │   ├── beep.c                  # 蜂鸣器控制
-│   │   ├── music.c                 # 蜂鸣器音乐播放
-│   │   ├── led.c                   # 混合音乐与三色灯（音乐可视化）
-│   │   ├── human_sensor.c          # 人体红外热释电传感器
-│   │   ├── photosensitive.c        # 光敏电阻开发
-│   │   └── human_sensor_light.c    # 夜晚人体感应灯（综合项目）
+│   ├── colorful_light/             # Module 2: Colorful light board
+│   │   ├── BUILD.gn                # Build configuration
+│   │   ├── beep.c                  # Buzzer control
+│   │   ├── music.c                 # Buzzer music playback
+│   │   ├── led.c                   # Music and three-color lights (music visualization)
+│   │   ├── human_sensor.c          # PIR human sensor
+│   │   ├── photosensitive.c        # Photoresistor
+│   │   └── human_sensor_light.c    # Nighttime motion-sensing light (integrated project)
 │   │
-│   ├── environment/                # 模块三：环境监测板开发
-│   │   ├── BUILD.gn                # 编译配置
-│   │   ├── mq2_demo.c              # MQ-2 燃气传感器开发
-│   │   ├── aht20.c/.h              # AHT20 温湿度传感器驱动
-│   │   ├── aht20_demo.c            # AHT20 传感器演示
-│   │   ├── oled_ssd1306.c/.h       # OLED 显示屏驱动
-│   │   ├── oled_fonts.h            # OLED 字体库
-│   │   ├── oled_demo.c             # OLED 显示演示
-│   │   └── enrionment_demo.c       # 综合环境监测系统
+│   ├── environment/                # Module 3: Environment monitoring board
+│   │   ├── BUILD.gn                # Build configuration
+│   │   ├── mq2_demo.c              # MQ-2 gas sensor
+│   │   ├── aht20.c/.h              # AHT20 temperature/humidity driver
+│   │   ├── aht20_demo.c            # AHT20 sensor demo
+│   │   ├── oled_ssd1306.c/.h       # OLED display driver
+│   │   ├── oled_fonts.h            # OLED fonts
+│   │   ├── oled_demo.c             # OLED display demo
+│   │   └── enrionment_demo.c       # Integrated environment monitoring
 │   │
-│   └── at_command/                 # 模块四：AT 指令开发
-│       ├── BUILD.gn                # 编译配置
-│       └── cal.c                   # 自定义 AT+CALC 指令
+│   └── at_command/                 # Module 4: AT commands
+│       ├── BUILD.gn                # Build configuration
+│       └── cal.c                   # Custom AT+CALC command
 │
-├── demolink/                        # 基础链接示例
-├── iothardware/                     # IoT 硬件示例
-├── samgr/                           # 系统服务管理
-└── startup/                         # 启动配置
+├── demolink/                        # Basic linking example
+├── iothardware/                     # IoT hardware examples
+├── samgr/                           # System service management
+└── startup/                         # Startup configuration
 ```
 
 ## 🎯 Detailed Guide to the Four Modules
@@ -87,7 +87,7 @@ Hi3861/
 
 #### **Learning Sequence**
 ```
-light.c（基础） → traffic.c（系统） → ability.c（并发） → button.c（交互） → control.c（综合）
+light.c (basics) → traffic.c (system) → ability.c (concurrency) → button.c (interaction) → control.c (integration)
 ```
 
 ### **Module 2: Multicolor-Light Board** 🎨
@@ -132,7 +132,7 @@ light.c（基础） → traffic.c（系统） → ability.c（并发） → butt
 
 #### **Learning Sequence**
 ```
-beep.c（声音） → music.c（音乐） → led.c（可视化） → human_sensor.c（感知） → photosensitive.c（环境） → human_sensor_light.c（智能）
+beep.c (sound) → music.c (music) → led.c (visualization) → human_sensor.c (sensing) → photosensitive.c (environment) → human_sensor_light.c (smart control)
 ```
 
 ### **Module 3: Environmental-Monitoring Board** 🌡️
@@ -210,10 +210,10 @@ OK
 Each module's `BUILD.gn` selects the active source files:
 
 ```gn
-# traffic_light/BUILD.gn 示例
+# traffic_light/BUILD.gn example
 sources = [
-    "light.c",    # 激活基础灯控制
-    # "traffic.c",  # 注释其他文件
+    "light.c",    # Enable basic light control
+    # "traffic.c",  # Comment out other files
     # "ability.c",
     # "button.c",
     # "control.c",
@@ -222,11 +222,11 @@ sources = [
 
 ### **Top-Level Build Configuration**
 ```gn
-# rayawa/BUILD.gn - 控制激活的模块
+# rayawa/BUILD.gn - Select active modules
 features = [
-    "hello:hello",                    # 基础示例
-    "traffic_light:traffic_light",    # 红绿灯模块
-    # "colorful_light:colorful_light", # 注释不需要的模块
+    "hello:hello",                    # Basic example
+    "traffic_light:traffic_light",    # Traffic light module
+    # "colorful_light:colorful_light", # Comment out unused modules
     # "environment:environment",
     # "at_command:at_command",
 ]
@@ -271,31 +271,31 @@ features = [
 
 ### **1. Prepare the Environment**
 ```bash
-# 确保 OpenHarmony 开发环境已配置
-# Hi3861 开发板连接正常
-# 串口驱动安装完成
+# Ensure the OpenHarmony development environment is configured
+# Check the Hi3861 board connection
+# Install the serial driver
 ```
 
 ### **2. Build the First Program**
 ```bash
-# 激活 hello 模块
+# Enable the hello module
 cd rayawa
-# 编辑 BUILD.gn，只保留 "hello:hello"
+# Edit BUILD.gn to retain only "hello:hello"
 
-# 编译
-cd ../../  # 回到 OpenHarmony 根目录
+# Build
+cd ../../  # Return to the OpenHarmony root
 hb build
 
-# 烧录测试
-# 使用 HiBurn 烧录，串口查看 "Hello OpenHarmony!"
+# Flash and test
+# Flash with HiBurn and check the serial port for "Hello OpenHarmony!"
 ```
 
 ### **3. Further Development**
 ```bash
-# 切换到红绿灯模块
-# 1. 编辑 rayawa/BUILD.gn，激活 traffic_light
-# 2. 编辑 traffic_light/BUILD.gn，激活 light.c
-# 3. 重新编译烧录
+# Switch to the traffic light module
+# 1. Edit rayawa/BUILD.gn to enable traffic_light
+# 2. Edit traffic_light/BUILD.gn to enable light.c
+# 3. Rebuild and flash
 ```
 
 ## 🤝 Development Conventions
